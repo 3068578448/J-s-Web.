@@ -183,90 +183,6 @@
             background: linear-gradient(90deg, rgba(255,255,255,0.12), transparent);
         }
 
-        /* ============ CARD BACKGROUND IMAGES (subtle) ============ */
-        .highlight-card, .exp-item, .project-card, .skill-category, .edu-box, .cert-item {
-            position: relative; overflow: hidden;
-        }
-        .highlight-card::after, .exp-item::after, .project-card::after,
-        .skill-category::after, .edu-box::after, .cert-item::after {
-            content: ''; position: absolute; inset: 0;
-            background-size: cover; background-position: center;
-            opacity: 0.12; z-index: 0; pointer-events: none;
-            transition: opacity 0.4s ease, transform 0.5s ease;
-            transform: scale(1.05);
-            filter: saturate(0.6) brightness(0.55);
-        }
-        .highlight-card:hover::after, .exp-item:hover::after, .project-card:hover::after,
-        .skill-category:hover::after, .edu-box:hover::after, .cert-item:hover::after {
-            opacity: 0.22; transform: scale(1.12);
-        }
-        /* 内容层压在背景图之上 */
-        .highlight-card > *, .exp-item > *, .project-card > *,
-        .skill-category > *, .edu-box > *, .cert-item > * {
-            position: relative; z-index: 1;
-        }
-
-        /* ---- 各卡片主题图 ---- */
-        .highlight-card::after {
-            background-image: url('https://images.unsplash.com/photo-1506318137071-a8e063b4bec0?w=600&q=60&auto=format&fit=crop'); /* 星空 */
-        }
-        .exp-item::after {
-            background-image: url('https://images.unsplash.com/photo-1519681393784-d120267933ba?w=600&q=60&auto=format&fit=crop'); /* 山川星夜 */
-        }
-        .project-card::after { background-image: none; } /* 清空通用，改为每个分类自定义 */
-
-        /* ---- 项目：按分类专属背景 ---- */
-        .project-card[data-cat="AI"]::after {
-            background-image: url('https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=600&q=60&auto=format&fit=crop'); /* 代码艺术 */
-        }
-        /* proj3: 智能体工作流专属 — 节点连线 / 自动化 */
-        .project-card[data-project-id="proj3"]::after {
-            background-image: url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&q=60&auto=format&fit=crop'); /* 数据网络节点 — 呼应工作流自动化 */
-        }
-        .project-card[data-cat="编程"]::after {
-            background-image: url('https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&q=60&auto=format&fit=crop'); /* 芯片 */
-        }
-        .project-card[data-cat="自媒体"]::after {
-            background-image: url('https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=600&q=60&auto=format&fit=crop'); /* 星光舞台 */
-        }
-        .project-card[data-cat="学习"]::after {
-            background-image: url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=600&q=60&auto=format&fit=crop'); /* 校园图书馆 */
-        }
-        .project-card[data-cat="实践"]::after {
-            background-image: url('https://images.unsplash.com/photo-1519681393784-d120267933ba?w=600&q=60&auto=format&fit=crop'); /* 山川星夜 */
-        }
-        .skill-category::after { background-image: none; } /* 清空通用，改为每个分类自定义 */
-
-        /* ---- 技能矩阵：按分类专属背景 ---- */
-        .skill-category[data-cat="办公软件"]::after {
-            background-image: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&q=60&auto=format&fit=crop'); /* 办公桌面 */
-        }
-        .skill-category[data-cat="编程语言"]::after {
-            background-image: url('https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=600&q=60&auto=format&fit=crop'); /* AI 神经网络 */
-        }
-        .skill-category[data-cat="AI工具"]::after {
-            background-image: url('https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&q=60&auto=format&fit=crop'); /* AI 机器人 */
-        }
-        .skill-category[data-cat="其他"]::after {
-            background-image: url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&q=60&auto=format&fit=crop'); /* 团队协作 */
-        }
-        .edu-box::after {
-            background-image: url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=600&q=60&auto=format&fit=crop'); /* 校园图书馆 */
-        }
-        .cert-item::after {
-            background-image: url('https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=600&q=60&auto=format&fit=crop'); /* 星光舞台 */
-        }
-
-        /* 项目 & 技能：科技感加强 */
-        .project-card::after, .skill-category::after {
-            opacity: 0.16;
-            filter: saturate(0.75) brightness(0.6) hue-rotate(-5deg);
-        }
-        .project-card:hover::after, .skill-category:hover::after {
-            opacity: 0.28;
-            filter: saturate(0.9) brightness(0.7) hue-rotate(-5deg);
-        }
-
         /* ============ HIGHLIGHTS ============ */
         .highlights-grid {
             display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
@@ -329,7 +245,6 @@
             width: 8px; height: 8px; border-radius: 50%;
             background: linear-gradient(135deg, #22d3ee, #818cf8);
             box-shadow: 0 0 12px rgba(6,182,212,0.4);
-            z-index: 2;
         }
         .exp-header { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
         .exp-title { font-size: 1.05rem; font-weight: 700; color: #fff; }
@@ -884,16 +799,6 @@
                     { src: 'proj-cpp-2.png', caption: '前n项和算法实现' },
                     { src: 'proj-cpp-3.png', caption: 'C语言项目集合' }
                 ]
-            }, {
-                id: 'proj3',
-                category: 'AI',
-                name: '校园资讯每日推送智能体',
-                tech: ['AI智能体', '工作流', '自动化'],
-                result: '搭建自动采集校园资讯、智能筛选分类、每日定时推送的AI工作流，实现信息聚合与个性化分发',
-                link: '#',
-                images: [
-                    { src: 'proj-agent-workflow.png', caption: '智能体工作流：开始→获取时间→文本处理→大模型→结束' }
-                ]
             }],
             education: {
                 school: '华北电力大学（北京校区）',
@@ -1036,7 +941,7 @@
                 createTabs(projContainer, projTabs, (items) => {
                     if (!items || items.length === 0) return '<p style="color:#94a3b8;">暂无项目</p>';
                     return `<div class="project-grid">${items.map(p => `
-                        <div class="project-card" data-project-id="${p.id}" data-cat="${p.category}">
+                        <div class="project-card" data-project-id="${p.id}">
                             <div class="proj-name">${p.name}</div>
                             <div class="proj-tech">${p.tech.map(t => `<span>${t}</span>`).join('')}</div>
                             <div class="proj-result">${p.result}</div>
@@ -1047,7 +952,7 @@
 
             // ---- Skills ----
             $('#skillsGrid').innerHTML = Object.entries(resume.skills).map(([cat, items]) =>
-                `<div class="skill-category" data-cat="${cat}">
+                `<div class="skill-category">
                     <div class="cat-name"><i data-lucide="zap"></i>${cat}</div>
                     <div class="skill-items">${items.map(s => `<span class="skill-tag">${s}</span>`).join('')}</div>
                 </div>`).join('');
@@ -1067,19 +972,6 @@
                     </div>
                     <div style="margin-top:8px;font-size:0.82rem;color:#64748b;">
                         🏃 爱好：${resume.hobbies.join(' · ')}
-                    </div>
-                    <div style="margin-top:16px;padding:10px 14px;background:linear-gradient(135deg, rgba(34,211,238,0.08), rgba(129,140,248,0.08));border-left:2px solid #22d3ee;border-radius:4px;font-size:0.85rem;color:#cbd5e1;font-style:italic;letter-spacing:0.3px;">
-                        ❝ Sometimes you have to be your own hero. ❞
-                    </div>
-                    <div style="margin-top:14px;">
-                        <div style="font-size:0.76rem;color:#64748b;text-transform:uppercase;letter-spacing:1.2px;font-weight:600;margin-bottom:8px;">
-                            <i data-lucide="sparkles" style="width:14px;height:14px;vertical-align:-2px;color:#22d3ee;"></i> 服务 · Services
-                        </div>
-                        <div style="display:flex;flex-wrap:wrap;gap:6px;">
-                            ${['PPT美化','Excel整理','工作流搭建','智能体设计（AI助理）','AI创意音乐','Codex','Obsidian','销售'].map(s =>
-                                `<span style="font-size:0.78rem;padding:3px 10px;border-radius:999px;background:rgba(34,211,238,0.1);border:1px solid rgba(34,211,238,0.2);color:#67e8f9;">${s}</span>`
-                            ).join('')}
-                        </div>
                     </div>
                 </div>
                 <div class="cert-box">
@@ -1370,56 +1262,63 @@
                 }
             }
 
-            // ---------- Shooting Star (流星) ----------
-            class ShootingStar {
+            // ---------- Drifting Particle (柔和粒子飘散) ----------
+            class DriftParticle {
                 constructor() { this.reset(); }
                 reset() {
-                    this.x = Math.random() * W * 0.6;
-                    this.y = Math.random() * H * 0.4;
-                    this.len = Math.random() * 120 + 120;   // 尾巴长度 120~240
-                    this.speed = Math.random() * 4 + 4;     // 速度 4~8（比之前 10~18 慢）
-                    this.angle = Math.PI / 5 + (Math.random() * 0.4 - 0.2);
-                    this.vx = Math.cos(this.angle) * this.speed;
-                    this.vy = Math.sin(this.angle) * this.speed;
+                    // 从画面顶部随机位置生成
+                    this.x = Math.random() * W * 1.2 - W * 0.1;
+                    this.y = Math.random() * -H * 0.3 - 10;
+                    // 速度：缓慢向下 + 轻微水平漂移
+                    this.vx = (Math.random() - 0.5) * 0.3;
+                    this.vy = Math.random() * 0.35 + 0.15;
+                    // 轻微横向摆动
+                    this.swingAmp = Math.random() * 0.3 + 0.1;
+                    this.swingFreq = Math.random() * 0.02 + 0.008;
+                    this.phase = Math.random() * Math.PI * 2;
+                    // 外观
+                    this.r = Math.random() * 1.2 + 0.4;
+                    this.hue = Math.random() * 40 + 180; // 青蓝 ~ 紫蓝
+                    this.alpha = Math.random() * 0.6 + 0.3;
                     this.life = 1;
-                    this.decay = Math.random() * 0.01 + 0.006;
-                    this.active = false;
+                    this.decay = Math.random() * 0.0015 + 0.0008; // 极慢衰减
+                    this.lightPhase = Math.random() * Math.PI * 2;
+                    this.active = true;
                 }
-                spawn() { this.reset(); this.active = true; }
                 update() {
-                    if (!this.active) return;
-                    this.x += this.vx;
+                    this.phase += this.swingFreq;
+                    this.x += this.vx + Math.sin(this.phase) * this.swingAmp;
                     this.y += this.vy;
                     this.life -= this.decay;
-                    if (this.life <= 0 || this.x > W || this.y > H) this.active = false;
+                    this.lightPhase += 0.02;
+                    if (this.y > H + 20 || this.life <= 0 || this.x < -20 || this.x > W + 20) {
+                        this.reset();
+                    }
                 }
                 draw() {
-                    if (!this.active) return;
-                    const tailX = this.x - Math.cos(this.angle) * this.len;
-                    const tailY = this.y - Math.sin(this.angle) * this.len;
-                    const grad = ctx.createLinearGradient(this.x, this.y, tailX, tailY);
-                    grad.addColorStop(0, `rgba(255,255,255,${this.life})`);
-                    grad.addColorStop(0.15, `rgba(186,230,253,${this.life * 0.9})`);
-                    grad.addColorStop(0.45, `rgba(125,211,252,${this.life * 0.5})`);
-                    grad.addColorStop(1, 'rgba(125,211,252,0)');
-                    ctx.strokeStyle = grad;
-                    ctx.lineWidth = 2.5 * dpr;
-                    ctx.lineCap = 'round';
+                    const twinkle = 0.7 + Math.sin(this.lightPhase) * 0.3;
+                    const a = this.alpha * this.life * twinkle;
+                    // 外发光
+                    const glowR = this.r * 3;
+                    const grad = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, glowR);
+                    grad.addColorStop(0, `hsla(${this.hue}, 85%, 80%, ${a * 0.8})`);
+                    grad.addColorStop(0.4, `hsla(${this.hue}, 80%, 65%, ${a * 0.3})`);
+                    grad.addColorStop(1, `hsla(${this.hue}, 70%, 50%, 0)`);
+                    ctx.fillStyle = grad;
                     ctx.beginPath();
-                    ctx.moveTo(this.x, this.y);
-                    ctx.lineTo(tailX, tailY);
-                    ctx.stroke();
+                    ctx.arc(this.x, this.y, glowR * dpr, 0, Math.PI * 2);
+                    ctx.fill();
+                    // 核心亮点
+                    ctx.fillStyle = `hsla(${this.hue}, 90%, 95%, ${a})`;
                     ctx.beginPath();
-                    ctx.arc(this.x, this.y, 2.2 * dpr, 0, Math.PI * 2);
-                    ctx.fillStyle = `rgba(255,255,255,${this.life})`;
+                    ctx.arc(this.x, this.y, this.r * dpr, 0, Math.PI * 2);
                     ctx.fill();
                 }
             }
 
             // ---------- Setup ----------
             let stars = [];
-            let shooters = [];
-            let shooterCooldown = 0;
+            let particles = [];
 
             function resize() {
                 dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -1437,7 +1336,14 @@
                 stars = [];
                 for (let i = 0; i < targetCount; i++) stars.push(new Star());
 
-                if (!reduced) shooters = [new ShootingStar(), new ShootingStar(), new ShootingStar()];
+                // 粒子数量：每 30000px² 一颗
+                if (!reduced) {
+                    const pCount = Math.max(30, Math.round((W * H) / 30000));
+                    particles = [];
+                    for (let i = 0; i < pCount; i++) particles.push(new DriftParticle());
+                } else {
+                    particles = [];
+                }
             }
 
             // ---------- Mouse parallax for stars ----------
@@ -1463,17 +1369,12 @@
                     ctx.restore();
                 }
 
-                // 流星（频率更低、速度更慢）
+                // 粒子飘散（柔和光点）
                 if (!reduced) {
-                    shooterCooldown--;
-                    if (shooterCooldown <= 0) {
-                        const inactive = shooters.filter(s => !s.active);
-                        if (inactive.length > 0) {
-                            inactive[Math.floor(Math.random() * inactive.length)].spawn();
-                        }
-                        shooterCooldown = Math.floor(Math.random() * 300) + 300; // 5~10s 一次
+                    for (let i = 0; i < particles.length; i++) {
+                        particles[i].update();
+                        particles[i].draw();
                     }
-                    shooters.forEach(s => { s.update(); s.draw(); });
                 }
 
                 requestAnimationFrame(loop);
